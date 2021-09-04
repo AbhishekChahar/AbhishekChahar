@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @AbhishekChahar
 - 👀 I’m interested in DSA and WEB DEV.
 - 🌱 I’m currently learning Advance JS
-- 💞️ I’m looking to collaborate on create stunning UIs.
+- 💞️ I’m looking to collaborate on creating great UI and UX.
 - 📫 How to reach - abhishekchahark@gmail.com
 
 <!---
