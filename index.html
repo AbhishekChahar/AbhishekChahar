@@ -420,9 +420,11 @@
       console.log(name + email + subject + body);
       body= ` Name: ${name} \n Email:  ${email} \n Subject:  ${subject} \n Body:  ${body}`;
       console.log(body);
+      
 
       Email.send({
         
+
 
         // SecureToken : "16e95460-0eff-430f-9cd3-cf51225feb6a",
         Host: "smtp.gmail.com",
@@ -434,7 +436,7 @@
         Body: body,
       })
         .then(function (message) {
-          alert("mail sent successfully!")
+          alert("Mail sent successfully! Thanks for your time!")
         });
     }
   </script>
