@@ -254,7 +254,6 @@
             <div class="row">
 
               <div class="col-lg-6">
-               
                 <div class="projects-item">
                   <h4><a href = "https://shopping-website-expressjs.herokuapp.com/" target="_blank" rel="noreferrer noopener"> E-COMMERCE WEBSITE</a></h4>
                   <h5>2021 Aug - 2021 August</h5>
@@ -266,7 +265,7 @@
                   </ul>
                 </div>
                 <div class="projects-item">
-                  <h4><a href = "https://group-chat-app-hkja7bcco-abhishekchahar.vercel.app/" target="_blank" rel="noreferrer noopener">Group Chat App</a></h4>
+                  <h4><a href = "https://chat-app-socketi.netlify.app/" target="_blank" rel="noreferrer noopener">Group Chat App</a></h4>
                   <h5>2021 July - 2021 July</h5>
                   <p><em>ReactJS , Express , SocketIO </em></p>
                   <ul>
@@ -347,35 +346,36 @@
 
           </div>
 
-          <!--
+          
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form role="form" method="post" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  <input id = "email-name" type="text" name="name" class="form-control" id="name" placeholder="Your Name"  value = "" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  <input id = "email-email" type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
                 </div>
               </div>
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                <input id = "email-subject" type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                <textarea id = "email-body" class="form-control" name="body" rows="5" placeholder="Message" required></textarea>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              
+              <div class="text-center"><input class="btn btn-primary " type="button" value = "Send Email" onclick="sendEmail()" /></div>
             </form>
 
           </div>
 
-          -->
+         
         </div>
 
       </div>
@@ -399,8 +399,48 @@
   <script src="assets/vendor/typed.js/typed.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
 
+  <!-- Smtp CDN file here -->
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  
+   <script type="text/javascript">
+
+      console.log(document.body);
+
+
+    function sendEmail() {
+
+      var name = document.querySelector("#email-name").value;
+      var email =  document.querySelector("#email-email").value ;
+      var subject=  document.querySelector("#email-subject").value ;
+      var body =  document.querySelector("#email-body").value ;
+
+      console.log(name + email + subject + body);
+      body= ` Name: ${name} \n Email:  ${email} \n Subject:  ${subject} \n Body:  ${body}`;
+      console.log(body);
+
+      Email.send({
+        
+
+        // SecureToken : "16e95460-0eff-430f-9cd3-cf51225feb6a",
+        Host: "smtp.gmail.com",
+        Username: "veerdonam@gmail.com",
+        Password: "veer1122",
+        To: "abhishekchahark@gmail.com",
+        From: email,
+        Subject: subject,
+        Body: body,
+      })
+        .then(function (message) {
+          alert("mail sent successfully!")
+        });
+    }
+  </script>
+  
+
+
 
 </body>
 
